@@ -1,0 +1,66 @@
+{
+  "info": {
+    "name": "QA API Testing Collection - ReqRes Demo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Sample Postman collection demonstrating API testing scenarios for QA portfolio."
+  },
+  "item": [
+    {
+      "name": "GET Users List",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://reqres.in/api/users?page=2",
+          "protocol": "https",
+          "host": ["reqres", "in"],
+          "path": ["api", "users"],
+          "query": [
+            {
+              "key": "page",
+              "value": "2"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "GET Single User",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://reqres.in/api/users/2",
+          "protocol": "https",
+          "host": ["reqres", "in"],
+          "path": ["api", "users", "2"]
+        }
+      }
+    },
+    {
+      "name": "POST Login Success",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"eve.holt@reqres.in\",\n  \"password\": \"cityslicka\"\n}"
+        },
+        "url": {
+          "raw": "https://reqres.in/api/login",
+          "protocol": "https",
+          "host": ["reqres", "in"],
+          "path": ["api", "login"]
+        }
+      }
+    },
+    {
+      "name": "POST Login Failure (Missing Password)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "ke
