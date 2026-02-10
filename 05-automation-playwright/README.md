@@ -18,8 +18,6 @@ npm run test:headed
 
 npm run report
 
-
-### Paste this test
 ```js
 const { test, expect } = require("@playwright/test");
 
