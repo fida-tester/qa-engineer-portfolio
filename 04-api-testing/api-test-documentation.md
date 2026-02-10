@@ -44,3 +44,74 @@ GET `/api/users?page=2`
 pm.test("Status code is 200", function () {
     pm.response.to.have.status(200);
 });
+
+. GET Single User
+Request
+
+GET /api/users/2
+
+Expected Result
+
+User details returned correctly
+
+ID matches request
+
+pm.test("User ID is correct", function () {
+    let jsonData = pm.response.json();
+    pm.expect(jsonData.data.id).to.eql(2);
+});
+
+3. POST Login (Positive)
+Request
+
+POST /api/login
+
+Body
+{
+  "email": "eve.holt@reqres.in",
+  "password": "cityslicka"
+}
+
+Expected
+
+Status = 200
+
+Token returned
+
+pm.test("Token is returned", function () {
+    let jsonData = pm.response.json();
+    pm.expect(jsonData.token).to.exist;
+});
+
+4. POST Login (Negative)
+Body (Missing Password)
+{
+  "email": "eve.holt@reqres.in"
+}
+
+Expected
+
+Status = 400
+
+Proper error message returned
+
+5. DELETE User
+Request
+
+DELETE /api/users/2
+
+Expected
+
+Status = 204 No Content
+
+Notes
+
+API testing is essential for:
+
+Microservices validation
+
+Integration testing
+
+Faster regression coverage
+
+Supporting automation frameworks
